@@ -10,30 +10,27 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: [
-        'favicon.svg',
-        'favicon.ico',
-        'robots.txt',
-        'apple-touch-icon.png',
-      ],
+      includeAssets: ['icon48.png'],
       manifest: {
         name: 'Scoreboard',
         short_name: 'Scoreboard',
         description: 'Ứng dụng tính điểm thi đấu cầu lông, bóng bàn...',
         theme_color: '#2563eb',
         background_color: '#ffffff',
-        display: 'standalone',
+        display: 'fullscreen',
         start_url: '/scoreboard/',
         scope: '/scoreboard/',
         icons: [
           {
-            src: '/scoreboard/icon-192.png',
-            sizes: '192x192',
+            purpose: 'maskable',
+            sizes: '512x512',
+            src: '/scoreboard/icon512_maskable.png',
             type: 'image/png',
           },
           {
-            src: '/scoreboard/icon-512.png',
+            purpose: 'any',
             sizes: '512x512',
+            src: '/scoreboard/icon512_rounded.png',
             type: 'image/png',
           },
         ],
