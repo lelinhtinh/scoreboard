@@ -23,15 +23,16 @@ export default defineConfig({
         theme_color: '#2563eb',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: '.',
+        start_url: '/scoreboard/',
+        scope: '/scoreboard/',
         icons: [
           {
-            src: '/icon-192.png',
+            src: '/scoreboard/icon-192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/icon-512.png',
+            src: '/scoreboard/icon-512.png',
             sizes: '512x512',
             type: 'image/png',
           },
