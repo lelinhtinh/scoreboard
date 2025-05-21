@@ -18,19 +18,19 @@ export default defineConfig({
         theme_color: '#2563eb',
         background_color: '#ffffff',
         display: 'fullscreen',
-        start_url: '/scoreboard/',
-        scope: '/scoreboard/',
+        start_url: './',
+        scope: './',
         icons: [
           {
             purpose: 'maskable',
             sizes: '512x512',
-            src: '/scoreboard/icon512_maskable.png',
+            src: 'icon512_maskable.png',
             type: 'image/png',
           },
           {
             purpose: 'any',
             sizes: '512x512',
-            src: '/scoreboard/icon512_rounded.png',
+            src: 'icon512_rounded.png',
             type: 'image/png',
           },
         ],
@@ -42,5 +42,5 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  base: '/scoreboard/',
+  base: './',
 });
