@@ -7,7 +7,7 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Crown, Menu } from 'lucide-react';
+import { Crown, Menu, ArrowDownUp, ArrowLeftRight } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -262,6 +262,18 @@ function App() {
     );
   }
 
+  // Swap teams and rounds
+  const handleSwapTeams = () => {
+    setTeams((prev) => [{ ...prev[1] }, { ...prev[0] }]);
+    setRounds((prev) =>
+      prev.map((r) => ({ a: r.b, b: r.a, hasEnded: r.hasEnded }))
+    );
+  };
+
+  // Determine which icon to use based on orientation
+  const isPortrait = window.innerHeight > window.innerWidth;
+  const SwapIcon = isPortrait ? ArrowDownUp : ArrowLeftRight;
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Menu */}
@@ -421,6 +433,18 @@ function App() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+      {/* Swap team button in center */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+        <Button
+          variant="outline"
+          size="icon"
+          aria-label="Đảo chiều"
+          onClick={handleSwapTeams}
+          className="shadow-lg bg-white/80 hover:bg-white"
+        >
+          <SwapIcon className="w-8 h-8 text-gray-700" />
+        </Button>
+      </div>
       {/* Scoreboard */}
       {teams.map((team, idx) => (
         <div
