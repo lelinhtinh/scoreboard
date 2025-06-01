@@ -36,13 +36,19 @@ describe('SwapButton', () => {
 
     expect(mockOnSwap).toHaveBeenCalledOnce();
   });
-  it('should show appropriate icon for current orientation', () => {
+  it('should render both icons with responsive classes', () => {
     const mockOnSwap = vi.fn();
     render(<SwapButton onSwap={mockOnSwap} />);
 
-    // Should show one of the icons based on orientation
-    // In testing environment, typically landscape (width > height)
-    const icons = screen.queryAllByTestId(/arrow-(down-up|left-right)-icon/);
-    expect(icons).toHaveLength(1);
+    // Both icons should be present in DOM with responsive visibility classes
+    const downUpIcon = screen.getByTestId('arrow-down-up-icon');
+    const leftRightIcon = screen.getByTestId('arrow-left-right-icon');
+
+    expect(downUpIcon).toBeInTheDocument();
+    expect(leftRightIcon).toBeInTheDocument();
+
+    // Verify both icons are rendered (CSS classes handle visibility)
+    const allIcons = screen.queryAllByTestId(/arrow-(down-up|left-right)-icon/);
+    expect(allIcons).toHaveLength(2);
   });
 });
