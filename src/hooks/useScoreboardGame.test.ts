@@ -1,5 +1,8 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
+import React from 'react';
+import { I18nextProvider } from 'react-i18next';
+import { testI18n } from '../test/i18n-test-utils';
 import { useScoreboardGame } from './useScoreboardGame';
 import type { GameConfig } from '../types/game';
 
@@ -12,13 +15,21 @@ describe('useScoreboardGame', () => {
     scoreStep: 1,
   };
 
+  // Helper function to create wrapper with i18n provider
+  const createWrapper = () => {
+    return ({ children }: { children: React.ReactNode }) => (
+      React.createElement(I18nextProvider, { i18n: testI18n }, children)
+    );
+  };
   beforeEach(() => {
     // Clear localStorage before each test
     localStorage.clear();
   });
 
   it('should initialize with default values', () => {
-    const { result } = renderHook(() => useScoreboardGame());
+    const { result } = renderHook(() => useScoreboardGame(), {
+      wrapper: createWrapper(),
+    });
 
     expect(result.current.teams).toEqual([
       { name: 'Team A', color: '#2563eb', score: 0 },
@@ -37,13 +48,13 @@ describe('useScoreboardGame', () => {
     const savedConfig = { ...defaultConfig, winScore: 15 };
     localStorage.setItem('scoreboard_config', JSON.stringify(savedConfig));
 
-    const { result } = renderHook(() => useScoreboardGame());
+    const { result } = renderHook(() => useScoreboardGame(), { wrapper: createWrapper(), });
 
     expect(result.current.config.winScore).toBe(15);
   });
 
   it('should calculate current round correctly', () => {
-    const { result } = renderHook(() => useScoreboardGame());
+    const { result } = renderHook(() => useScoreboardGame(), { wrapper: createWrapper(), });
 
     // Should start at round 1
     expect(result.current.currentRound).toBe(1);
@@ -60,7 +71,7 @@ describe('useScoreboardGame', () => {
   });
 
   it('should detect final winner correctly', () => {
-    const { result } = renderHook(() => useScoreboardGame());
+    const { result } = renderHook(() => useScoreboardGame(), { wrapper: createWrapper(), });
 
     // Set up scenario where Team A wins 2 rounds (majority of 3)
     act(() => {
@@ -76,7 +87,7 @@ describe('useScoreboardGame', () => {
   });
 
   it('should determine who can edit scores correctly', () => {
-    const { result } = renderHook(() => useScoreboardGame());
+    const { result } = renderHook(() => useScoreboardGame(), { wrapper: createWrapper(), });
 
     // Should be able to edit when only one round exists
     expect(result.current.canEditScore()).toBe(true);
@@ -95,7 +106,7 @@ describe('useScoreboardGame', () => {
   });
 
   it('should get last round result correctly', () => {
-    const { result } = renderHook(() => useScoreboardGame());
+    const { result } = renderHook(() => useScoreboardGame(), { wrapper: createWrapper(), });
 
     const rounds = [
       { a: 21, b: 18, hasEnded: true },
@@ -112,7 +123,7 @@ describe('useScoreboardGame', () => {
   });
 
   it('should handle single round games correctly', () => {
-    const { result } = renderHook(() => useScoreboardGame());
+    const { result } = renderHook(() => useScoreboardGame(), { wrapper: createWrapper(), });
 
     const singleRoundConfig = { ...defaultConfig, winRounds: 1 };
 
@@ -127,7 +138,7 @@ describe('useScoreboardGame', () => {
   });
 
   it('should update teams correctly', () => {
-    const { result } = renderHook(() => useScoreboardGame());
+    const { result } = renderHook(() => useScoreboardGame(), { wrapper: createWrapper(), });
 
     const newTeams = [
       { name: 'Red Team', color: '#ff0000', score: 5 },
@@ -142,7 +153,7 @@ describe('useScoreboardGame', () => {
   });
 
   it('should handle temp values for settings correctly', () => {
-    const { result } = renderHook(() => useScoreboardGame());
+    const { result } = renderHook(() => useScoreboardGame(), { wrapper: createWrapper(), });
 
     const newTempTeams = [
       { name: 'New Team A', color: '#ff0000', score: 0 },
@@ -162,7 +173,7 @@ describe('useScoreboardGame', () => {
   });
 
   it('should manage dialog states correctly', () => {
-    const { result } = renderHook(() => useScoreboardGame());
+    const { result } = renderHook(() => useScoreboardGame(), { wrapper: createWrapper(), });
 
     // Test settings dialog
     act(() => {

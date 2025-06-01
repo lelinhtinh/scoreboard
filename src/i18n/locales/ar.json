@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "لوحة النتائج"
+    },
+    "menu": {
+        "newRound": "جولة جديدة",
+        "newMatch": "مباراة جديدة",
+        "editScore": "تعديل النتيجة",
+        "settings": "الإعدادات"
+    },
+    "settings": {
+        "title": "إعدادات المباراة",
+        "description": "تكوين الفرق وقواعد اللعبة للمباراة",
+        "teams": "الفرق",
+        "team": "الفريق {{number}}",
+        "name": "الاسم",
+        "gameConfig": "تكوين اللعبة",
+        "teamName": "اسم الفريق",
+        "color": "اللون",
+        "winScore": "نقاط الفوز",
+        "maxScore": "أقصى نقاط",
+        "minDiff": "أدنى فرق",
+        "winRounds": "جولات الفوز",
+        "scoreStep": "زيادة النقاط",
+        "reset": "إعادة تعيين",
+        "save": "حفظ"
+    },
+    "editScore": {
+        "title": "تعديل النقاط",
+        "cancel": "إلغاء",
+        "save": "حفظ"
+    },
+    "editScores": {
+        "title": "تعديل نتائج الجولة",
+        "description": "تعديل النقاط لكل جولة في المباراة",
+        "round": "الجولة {{number}}"
+    },
+    "common": {
+        "cancel": "إلغاء",
+        "save": "حفظ"
+    },
+    "winMessage": {
+        "roundWin": "{{team}} فاز بالجولة {{round}}",
+        "finalWin": "{{team}} فاز بالمباراة!"
+    },
+    "ui": {
+        "swapTeams": "تبديل الفرق"
+    },
+    "validation": {
+        "teamNameEmpty": "اسم الفريق لا يمكن أن يكون فارغًا",
+        "teamNameWhitespace": "اسم الفريق لا يمكن أن يحتوي على مسافات فقط",
+        "teamNameTooLong": "اسم الفريق لا يمكن أن يتجاوز 50 حرفًا",
+        "invalidColor": "تنسيق لون غير صحيح",
+        "valueGreaterThanZero": "القيمة يجب أن تكون أكبر من 0",
+        "integerOnly": "الأرقام الصحيحة فقط مسموحة",
+        "positiveOnly": "الأرقام الموجبة فقط مسموحة",
+        "oddRoundsOnly": "جولات الفوز يجب أن تكون فردية",
+        "invalidData": "بيانات غير صحيحة",
+        "validationError": "خطأ في التحقق"
+    },
+    "defaultTeams": {
+        "teamA": "الفريق أ",
+        "teamB": "الفريق ب"
+    }
+}

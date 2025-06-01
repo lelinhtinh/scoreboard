@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
+import { renderWithI18n } from '../test/i18n-test-utils';
 import { SettingsDialog } from './SettingsDialog';
 import type { GameConfig, TeamConfig } from '../types/game';
 
@@ -15,6 +16,9 @@ vi.mock('@/components/ui/dialog', () => ({
   ),
   DialogTitle: ({ children }: { children: React.ReactNode }) => (
     <h2 data-testid="dialog-title">{children}</h2>
+  ),
+  DialogDescription: ({ children }: { children: React.ReactNode }) => (
+    <p data-testid="dialog-description">{children}</p>
   ),
   DialogFooter: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="dialog-footer">{children}</div>
@@ -87,22 +91,20 @@ describe('SettingsDialog', () => {
     onReset: vi.fn(),
     onSave: vi.fn(),
   };
-
   it('should render when open', () => {
-    render(<SettingsDialog {...defaultProps} />);
+    renderWithI18n(<SettingsDialog {...defaultProps} />);
 
     expect(screen.getByTestId('dialog')).toBeInTheDocument();
-    expect(screen.getByText('Cài đặt trận đấu')).toBeInTheDocument();
+    expect(screen.getByText('Match Settings')).toBeInTheDocument();
   });
 
   it('should not render when closed', () => {
-    render(<SettingsDialog {...defaultProps} open={false} />);
+    renderWithI18n(<SettingsDialog {...defaultProps} open={false} />);
 
     expect(screen.queryByTestId('dialog')).not.toBeInTheDocument();
   });
-
   it('should display team names and colors', () => {
-    render(<SettingsDialog {...defaultProps} />);
+    renderWithI18n(<SettingsDialog {...defaultProps} />);
 
     expect(screen.getByDisplayValue('Team A')).toBeInTheDocument();
     expect(screen.getByDisplayValue('Team B')).toBeInTheDocument();
@@ -111,7 +113,7 @@ describe('SettingsDialog', () => {
   });
 
   it('should display game config values', () => {
-    render(<SettingsDialog {...defaultProps} />);
+    renderWithI18n(<SettingsDialog {...defaultProps} />);
 
     expect(screen.getByDisplayValue('21')).toBeInTheDocument(); // winScore
     expect(screen.getByDisplayValue('30')).toBeInTheDocument(); // maxScore
@@ -122,7 +124,9 @@ describe('SettingsDialog', () => {
 
   it('should call onTeamChange when team name is changed', () => {
     const onTeamChange = vi.fn();
-    render(<SettingsDialog {...defaultProps} onTeamChange={onTeamChange} />);
+    renderWithI18n(
+      <SettingsDialog {...defaultProps} onTeamChange={onTeamChange} />
+    );
 
     const teamAInput = screen.getByDisplayValue('Team A');
     fireEvent.change(teamAInput, { target: { value: 'New Team A' } });
@@ -132,7 +136,9 @@ describe('SettingsDialog', () => {
 
   it('should call onTeamChange when team color is changed', () => {
     const onTeamChange = vi.fn();
-    render(<SettingsDialog {...defaultProps} onTeamChange={onTeamChange} />);
+    renderWithI18n(
+      <SettingsDialog {...defaultProps} onTeamChange={onTeamChange} />
+    );
 
     const colorAInput = screen.getByDisplayValue('#2563eb');
     fireEvent.change(colorAInput, { target: { value: '#ff0000' } });
@@ -141,7 +147,7 @@ describe('SettingsDialog', () => {
   });
   it('should call onConfigChange when config values are changed', () => {
     const onConfigChange = vi.fn();
-    render(
+    renderWithI18n(
       <SettingsDialog {...defaultProps} onConfigChange={onConfigChange} />
     );
 
@@ -153,18 +159,17 @@ describe('SettingsDialog', () => {
 
   it('should call onReset when reset button is clicked', () => {
     const onReset = vi.fn();
-    render(<SettingsDialog {...defaultProps} onReset={onReset} />);
+    renderWithI18n(<SettingsDialog {...defaultProps} onReset={onReset} />);
 
-    const resetButton = screen.getByText('Đặt lại');
+    const resetButton = screen.getByText('Reset');
     fireEvent.click(resetButton);
 
     expect(onReset).toHaveBeenCalled();
   });
   it('should call onSave when save button is clicked', () => {
     const onSave = vi.fn();
-    render(<SettingsDialog {...defaultProps} onSave={onSave} />);
-
-    const saveButton = screen.getByText('Lưu');
+    renderWithI18n(<SettingsDialog {...defaultProps} onSave={onSave} />);
+    const saveButton = screen.getByText('Save');
     fireEvent.click(saveButton);
 
     expect(onSave).toHaveBeenCalled();
@@ -172,36 +177,32 @@ describe('SettingsDialog', () => {
 
   describe('Validation', () => {
     it('should show error for empty team name', () => {
-      render(<SettingsDialog {...defaultProps} />);
+      renderWithI18n(<SettingsDialog {...defaultProps} />);
 
       const teamAInput = screen.getByDisplayValue('Team A');
       fireEvent.change(teamAInput, { target: { value: '' } });
 
-      expect(
-        screen.getByText('Tên đội không được để trống')
-      ).toBeInTheDocument();
+      expect(screen.getByText('Team name cannot be empty')).toBeInTheDocument();
     });
 
     it('should show error for team name with only whitespace', () => {
-      render(<SettingsDialog {...defaultProps} />);
+      renderWithI18n(<SettingsDialog {...defaultProps} />);
 
       const teamAInput = screen.getByDisplayValue('Team A');
       fireEvent.change(teamAInput, { target: { value: '   ' } });
-
       expect(
-        screen.getByText('Tên đội không được chỉ chứa khoảng trắng')
+        screen.getByText('Team name cannot contain only whitespace')
       ).toBeInTheDocument();
     });
 
     it('should show error for team name longer than 50 characters', () => {
-      render(<SettingsDialog {...defaultProps} />);
+      renderWithI18n(<SettingsDialog {...defaultProps} />);
 
       const teamAInput = screen.getByDisplayValue('Team A');
       const longName = 'A'.repeat(51);
       fireEvent.change(teamAInput, { target: { value: longName } });
-
       expect(
-        screen.getByText('Tên đội không được vượt quá 50 ký tự')
+        screen.getByText('Team name cannot exceed 50 characters')
       ).toBeInTheDocument();
     });
     it('should show error for invalid color format', async () => {
@@ -217,69 +218,59 @@ describe('SettingsDialog', () => {
         ],
       };
 
-      render(<SettingsDialog {...propsWithInvalidColor} />);
-
-      // Click save to trigger validation
-      const saveButton = screen.getByText('Lưu');
+      renderWithI18n(<SettingsDialog {...propsWithInvalidColor} />); // Click save to trigger validation
+      const saveButton = screen.getByText('Save');
       fireEvent.click(saveButton);
 
       // Wait for validation to complete
-      await new Promise((resolve) => setTimeout(resolve, 0));
-
-      // Should not save due to validation error
+      await new Promise((resolve) => setTimeout(resolve, 0)); // Should not save due to validation error
       expect(onSave).not.toHaveBeenCalled();
       // Should show the color validation error
-      expect(screen.getByText('Màu sắc không hợp lệ')).toBeInTheDocument();
+      expect(screen.getByText('Invalid color format')).toBeInTheDocument();
     });
 
     it('should show error for non-integer values in numeric fields', () => {
-      render(<SettingsDialog {...defaultProps} />);
+      renderWithI18n(<SettingsDialog {...defaultProps} />);
 
       const winScoreInput = screen.getByDisplayValue('21');
       fireEvent.change(winScoreInput, { target: { value: '21.5' } });
 
-      expect(screen.getByText('Chỉ được nhập số nguyên')).toBeInTheDocument();
+      expect(screen.getByText('Only integers allowed')).toBeInTheDocument();
     });
 
     it('should show error for zero or negative values in numeric fields', () => {
-      render(<SettingsDialog {...defaultProps} />);
+      renderWithI18n(<SettingsDialog {...defaultProps} />);
 
       const winScoreInput = screen.getByDisplayValue('21');
       fireEvent.change(winScoreInput, { target: { value: '0' } });
 
-      expect(screen.getByText('Giá trị phải lớn hơn 0')).toBeInTheDocument();
+      expect(
+        screen.getByText('Value must be greater than 0')
+      ).toBeInTheDocument();
     });
 
     it('should show error for even numbers in winRounds field', () => {
-      render(<SettingsDialog {...defaultProps} />);
-
+      renderWithI18n(<SettingsDialog {...defaultProps} />);
       const winRoundsInput = screen.getByDisplayValue('3');
       fireEvent.change(winRoundsInput, { target: { value: '4' } });
 
-      expect(
-        screen.getByText('Số vòng để thắng phải là số lẻ')
-      ).toBeInTheDocument();
+      expect(screen.getByText('Rounds to win must be odd')).toBeInTheDocument();
     });
     it('should show validation errors when save button is clicked with form errors', async () => {
-      render(<SettingsDialog {...defaultProps} />);
+      renderWithI18n(<SettingsDialog {...defaultProps} />);
 
       const teamAInput = screen.getByDisplayValue('Team A');
-      fireEvent.change(teamAInput, { target: { value: '' } });
-
-      // Validation should trigger immediately on change, showing error
-      expect(
-        screen.getByText('Tên đội không được để trống')
-      ).toBeInTheDocument();
+      fireEvent.change(teamAInput, { target: { value: '' } }); // Validation should trigger immediately on change, showing error
+      expect(screen.getByText('Team name cannot be empty')).toBeInTheDocument();
 
       // Save button should remain enabled
-      const saveButton = screen.getByText('Lưu');
+      const saveButton = screen.getByText('Save');
       expect(saveButton).not.toBeDisabled();
     });
 
     it('should enable save button when form is valid', () => {
-      render(<SettingsDialog {...defaultProps} />);
-
-      const saveButton = screen.getByText('Lưu');
+      renderWithI18n(<SettingsDialog {...defaultProps} />);
+      const saveButton = screen.getByText('Save');
       expect(saveButton).not.toBeDisabled();
     });
     it('should validate all fields when save is clicked', async () => {
@@ -297,25 +288,18 @@ describe('SettingsDialog', () => {
         },
       };
 
-      render(<SettingsDialog {...invalidProps} />);
-
-      const saveButton = screen.getByText('Lưu');
+      renderWithI18n(<SettingsDialog {...invalidProps} />);
+      const saveButton = screen.getByText('Save');
       fireEvent.click(saveButton);
 
       // Wait for validation to complete
       await new Promise((resolve) => setTimeout(resolve, 0));
 
       // Should not call onSave due to validation errors
-      expect(onSave).not.toHaveBeenCalled();
-
-      // Should show error messages
-      expect(
-        screen.getByText('Tên đội không được để trống')
-      ).toBeInTheDocument();
-      expect(screen.getByText('Màu sắc không hợp lệ')).toBeInTheDocument();
-      expect(
-        screen.getByText('Số vòng để thắng phải là số lẻ')
-      ).toBeInTheDocument();
+      expect(onSave).not.toHaveBeenCalled(); // Should show error messages
+      expect(screen.getByText('Team name cannot be empty')).toBeInTheDocument();
+      expect(screen.getByText('Invalid color format')).toBeInTheDocument();
+      expect(screen.getByText('Rounds to win must be odd')).toBeInTheDocument();
     });
   });
 });

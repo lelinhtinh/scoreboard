@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "Anzeigetafel"
+    },
+    "menu": {
+        "newRound": "Neue Runde",
+        "newMatch": "Neues Spiel",
+        "editScore": "Punkte Bearbeiten",
+        "settings": "Einstellungen"
+    },
+    "settings": {
+        "title": "Spiel-Einstellungen",
+        "description": "Konfigurieren Sie Teams und Spielregeln für Ihr Spiel",
+        "teams": "Teams",
+        "team": "Team {{number}}",
+        "name": "Name",
+        "gameConfig": "Spiel-Konfiguration",
+        "teamName": "Team-Name",
+        "color": "Farbe",
+        "winScore": "Punkte zum Gewinnen",
+        "maxScore": "Maximale Punkte",
+        "minDiff": "Mindestunterschied",
+        "winRounds": "Runden zum Gewinnen",
+        "scoreStep": "Punkte-Zuwachs",
+        "reset": "Zurücksetzen",
+        "save": "Speichern"
+    },
+    "editScore": {
+        "title": "Punkte Bearbeiten",
+        "cancel": "Abbrechen",
+        "save": "Speichern"
+    },
+    "editScores": {
+        "title": "Runden-Ergebnisse Bearbeiten",
+        "description": "Ändern Sie die Punkte für jede Runde des Spiels",
+        "round": "Runde {{number}}"
+    },
+    "common": {
+        "cancel": "Abbrechen",
+        "save": "Speichern"
+    },
+    "winMessage": {
+        "roundWin": "{{team}} hat Runde {{round}} gewonnen!",
+        "finalWin": "{{team}} hat das Spiel gewonnen!"
+    },
+    "ui": {
+        "swapTeams": "Teams tauschen"
+    },
+    "validation": {
+        "teamNameEmpty": "Team-Name darf nicht leer sein",
+        "teamNameWhitespace": "Team-Name darf nicht nur aus Leerzeichen bestehen",
+        "teamNameTooLong": "Team-Name darf 50 Zeichen nicht überschreiten",
+        "invalidColor": "Ungültiges Farbformat",
+        "valueGreaterThanZero": "Wert muss größer als 0 sein",
+        "integerOnly": "Nur ganze Zahlen erlaubt",
+        "positiveOnly": "Nur positive Zahlen erlaubt",
+        "oddRoundsOnly": "Runden zum Gewinnen müssen ungerade sein",
+        "invalidData": "Ungültige Daten",
+        "validationError": "Validierungsfehler"
+    },
+    "defaultTeams": {
+        "teamA": "Team A",
+        "teamB": "Team B"
+    }
+}

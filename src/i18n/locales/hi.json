@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "स्कोरबोर्ड"
+    },
+    "menu": {
+        "newRound": "नया राउंड",
+        "newMatch": "नया मैच",
+        "editScore": "स्कोर संपादित करें",
+        "settings": "सेटिंग्स"
+    },
+    "settings": {
+        "title": "मैच सेटिंग्स",
+        "description": "अपने मैच के लिए टीमों और खेल नियमों को कॉन्फ़िगर करें",
+        "teams": "टीमें",
+        "team": "टीम {{number}}",
+        "name": "नाम",
+        "gameConfig": "गेम कॉन्फ़िगरेशन",
+        "teamName": "टीम का नाम",
+        "color": "रंग",
+        "winScore": "जीतने का स्कोर",
+        "maxScore": "अधिकतम स्कोर",
+        "minDiff": "न्यूनतम अंतर",
+        "winRounds": "जीतने के राउंड",
+        "scoreStep": "स्कोर वृद्धि",
+        "reset": "रीसेट",
+        "save": "सहेजें"
+    },
+    "editScore": {
+        "title": "स्कोर संपादित करें",
+        "cancel": "रद्द करें",
+        "save": "सहेजें"
+    },
+    "editScores": {
+        "title": "राउंड परिणाम संपादित करें",
+        "description": "मैच के प्रत्येक राउंड के स्कोर को संशोधित करें",
+        "round": "राउंड {{number}}"
+    },
+    "common": {
+        "cancel": "रद्द करें",
+        "save": "सहेजें"
+    },
+    "winMessage": {
+        "roundWin": "{{team}} ने राउंड {{round}} जीता",
+        "finalWin": "{{team}} ने मैच जीता!"
+    },
+    "ui": {
+        "swapTeams": "टीमों को अदला-बदली करें"
+    },
+    "validation": {
+        "teamNameEmpty": "टीम का नाम खाली नहीं हो सकता",
+        "teamNameWhitespace": "टीम के नाम में केवल व्हाइटस्पेस नहीं हो सकता",
+        "teamNameTooLong": "टीम का नाम 50 अक्षरों से अधिक नहीं हो सकता",
+        "invalidColor": "अमान्य रंग प्रारूप",
+        "valueGreaterThanZero": "मान 0 से अधिक होना चाहिए",
+        "integerOnly": "केवल पूर्णांक की अनुमति है",
+        "positiveOnly": "केवल सकारात्मक संख्याओं की अनुमति है",
+        "oddRoundsOnly": "जीतने के राउंड विषम होने चाहिए",
+        "invalidData": "अमान्य डेटा",
+        "validationError": "सत्यापन त्रुटि"
+    },
+    "defaultTeams": {
+        "teamA": "टीम ए",
+        "teamB": "टीम बी"
+    }
+}

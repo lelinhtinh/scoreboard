@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "กระดานคะแนน"
+    },
+    "menu": {
+        "newRound": "รอบใหม่",
+        "newMatch": "แมทช์ใหม่",
+        "editScore": "แก้ไขคะแนน",
+        "settings": "การตั้งค่า"
+    },
+    "settings": {
+        "title": "การตั้งค่าแมทช์",
+        "description": "กำหนดค่าทีมและกฎเกมสำหรับแมทช์ของคุณ",
+        "teams": "ทีม",
+        "team": "ทีม {{number}}",
+        "name": "ชื่อ",
+        "gameConfig": "การตั้งค่าเกม",
+        "teamName": "ชื่อทีม",
+        "color": "สี",
+        "winScore": "คะแนนชนะ",
+        "maxScore": "คะแนนสูงสุด",
+        "minDiff": "ความแตกต่างขั้นต่ำ",
+        "winRounds": "รอบที่ต้องชนะ",
+        "scoreStep": "การเพิ่มคะแนน",
+        "reset": "รีเซ็ต",
+        "save": "บันทึก"
+    },
+    "editScore": {
+        "title": "แก้ไขคะแนน",
+        "cancel": "ยกเลิก",
+        "save": "บันทึก"
+    },
+    "editScores": {
+        "title": "แก้ไขผลรอบ",
+        "description": "แก้ไขคะแนนสำหรับแต่ละรอบของแมทช์",
+        "round": "รอบ {{number}}"
+    },
+    "common": {
+        "cancel": "ยกเลิก",
+        "save": "บันทึก"
+    },
+    "winMessage": {
+        "roundWin": "{{team}} ชนะรอบ {{round}}",
+        "finalWin": "{{team}} ชนะแมทช์!"
+    },
+    "ui": {
+        "swapTeams": "สลับทีม"
+    },
+    "validation": {
+        "teamNameEmpty": "ชื่อทีมไม่สามารถเป็นค่าว่างได้",
+        "teamNameWhitespace": "ชื่อทีมไม่สามารถมีแต่ช่องว่างได้",
+        "teamNameTooLong": "ชื่อทีมไม่สามารถมีมากกว่า 50 ตัวอักษร",
+        "invalidColor": "รูปแบบสีไม่ถูกต้อง",
+        "valueGreaterThanZero": "ค่าต้องมากกว่า 0",
+        "integerOnly": "อนุญาตเฉพาะจำนวนเต็มเท่านั้น",
+        "positiveOnly": "อนุญาตเฉพาะจำนวนบวกเท่านั้น",
+        "oddRoundsOnly": "รอบที่ต้องชนะต้องเป็นจำนวนคี่",
+        "invalidData": "ข้อมูลไม่ถูกต้อง",
+        "validationError": "ข้อผิดพลาดในการตรวจสอบ"
+    },
+    "defaultTeams": {
+        "teamA": "ทีม A",
+        "teamB": "ทีม B"
+    }
+}

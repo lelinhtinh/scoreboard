@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "Scoreboard"
+    },
+    "menu": {
+        "newRound": "New Round",
+        "newMatch": "New Match",
+        "editScore": "Edit Score",
+        "settings": "Settings"
+    },
+    "settings": {
+        "title": "Match Settings",
+        "description": "Configure teams and game rules for your match",
+        "teams": "Teams",
+        "team": "Team {{number}}",
+        "name": "Name",
+        "gameConfig": "Game Configuration",
+        "teamName": "Team Name",
+        "color": "Color",
+        "winScore": "Score to Win",
+        "maxScore": "Maximum Score",
+        "minDiff": "Minimum Difference",
+        "winRounds": "Rounds to Win",
+        "scoreStep": "Score Increment",
+        "reset": "Reset",
+        "save": "Save"
+    },
+    "editScore": {
+        "title": "Edit Scores",
+        "cancel": "Cancel",
+        "save": "Save"
+    },
+    "editScores": {
+        "title": "Edit Round Results",
+        "description": "Modify the scores for each round of the match",
+        "round": "Round {{number}}"
+    },
+    "common": {
+        "cancel": "Cancel",
+        "save": "Save"
+    },
+    "winMessage": {
+        "roundWin": "{{team}} won round {{round}}",
+        "finalWin": "{{team}} won the match!"
+    },
+    "ui": {
+        "swapTeams": "Swap teams"
+    },
+    "validation": {
+        "teamNameEmpty": "Team name cannot be empty",
+        "teamNameWhitespace": "Team name cannot contain only whitespace",
+        "teamNameTooLong": "Team name cannot exceed 50 characters",
+        "invalidColor": "Invalid color format",
+        "valueGreaterThanZero": "Value must be greater than 0",
+        "integerOnly": "Only integers allowed",
+        "positiveOnly": "Only positive numbers allowed",
+        "oddRoundsOnly": "Rounds to win must be odd",
+        "invalidData": "Invalid data",
+        "validationError": "Validation error"
+    },
+    "defaultTeams": {
+        "teamA": "Team A",
+        "teamB": "Team B"
+    }
+}

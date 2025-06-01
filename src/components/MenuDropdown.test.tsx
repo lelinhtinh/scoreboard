@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
+import { renderWithI18n } from '../test/i18n-test-utils';
 import { MenuDropdown } from './MenuDropdown';
 import type { GameConfig } from '../types/game';
 
@@ -41,6 +42,17 @@ vi.mock('@/components/ui/button', () => ({
 
 vi.mock('lucide-react', () => ({
   Menu: () => <svg data-testid="menu-icon" />,
+  Languages: () => <svg data-testid="languages-icon" />,
+  ChevronDownIcon: () => <svg data-testid="chevron-down-icon" />,
+  ChevronUpIcon: () => <svg data-testid="chevron-up-icon" />,
+  CheckIcon: () => <svg data-testid="check-icon" />,
+}));
+
+// Mock the LanguageSelector component
+vi.mock('../LanguageSelector', () => ({
+  LanguageSelector: () => (
+    <div data-testid="language-selector">Language Selector</div>
+  ),
 }));
 
 const defaultConfig: GameConfig = {
@@ -63,82 +75,81 @@ const mockProps = {
 
 describe('MenuDropdown', () => {
   it('should render menu button', () => {
-    render(<MenuDropdown {...mockProps} />);
+    renderWithI18n(<MenuDropdown {...mockProps} />);
 
     const menuButton = screen.getByLabelText('Menu');
     expect(menuButton).toBeInTheDocument();
   });
-
-  it('should show "Vòng mới" option when winRounds > 1', () => {
-    render(<MenuDropdown {...mockProps} />);
+  it('should show "New Round" option when winRounds > 1', () => {
+    renderWithI18n(<MenuDropdown {...mockProps} />);
 
     const menuButton = screen.getByLabelText('Menu');
     fireEvent.click(menuButton);
 
-    expect(screen.getByText('Vòng mới')).toBeInTheDocument();
+    expect(screen.getByText('New Round')).toBeInTheDocument();
   });
 
-  it('should not show "Vòng mới" option when winRounds = 1', () => {
+  it('should not show "New Round" option when winRounds = 1', () => {
     const singleRoundConfig = { ...defaultConfig, winRounds: 1 };
-    render(<MenuDropdown {...mockProps} config={singleRoundConfig} />);
+    renderWithI18n(<MenuDropdown {...mockProps} config={singleRoundConfig} />);
 
     const menuButton = screen.getByLabelText('Menu');
     fireEvent.click(menuButton);
 
-    expect(screen.queryByText('Vòng mới')).not.toBeInTheDocument();
+    expect(screen.queryByText('New Round')).not.toBeInTheDocument();
   });
 
-  it('should disable "Vòng mới" when last round has not ended', () => {
-    render(<MenuDropdown {...mockProps} lastRoundEnded={false} />);
+  it('should disable "New Round" when last round has not ended', () => {
+    renderWithI18n(<MenuDropdown {...mockProps} lastRoundEnded={false} />);
 
     const menuButton = screen.getByLabelText('Menu');
     fireEvent.click(menuButton);
 
-    const nextRoundButton = screen.getByText('Vòng mới');
+    const nextRoundButton = screen.getByText('New Round');
     expect(nextRoundButton).toHaveAttribute('aria-disabled', 'true');
   });
 
-  it('should disable "Vòng mới" when there is a final winner', () => {
-    render(<MenuDropdown {...mockProps} hasFinalWinner={true} />);
+  it('should disable "New Round" when there is a final winner', () => {
+    renderWithI18n(<MenuDropdown {...mockProps} hasFinalWinner={true} />);
 
     const menuButton = screen.getByLabelText('Menu');
     fireEvent.click(menuButton);
 
-    const nextRoundButton = screen.getByText('Vòng mới');
+    const nextRoundButton = screen.getByText('New Round');
     expect(nextRoundButton).toHaveAttribute('aria-disabled', 'true');
   });
 
-  it('should call onReset when "Trận mới" is clicked', () => {
-    render(<MenuDropdown {...mockProps} />);
+  it('should call onReset when "New Match" is clicked', () => {
+    renderWithI18n(<MenuDropdown {...mockProps} />);
 
     const menuButton = screen.getByLabelText('Menu');
     fireEvent.click(menuButton);
 
-    const resetButton = screen.getByText('Trận mới');
+    const resetButton = screen.getByText('New Match');
     fireEvent.click(resetButton);
 
     expect(mockProps.onReset).toHaveBeenCalledOnce();
   });
 
-  it('should call onEditScore when "Sửa kết quả" is clicked', () => {
-    render(<MenuDropdown {...mockProps} />);
+  it('should call onEditScore when "Edit Score" is clicked', () => {
+    renderWithI18n(<MenuDropdown {...mockProps} />);
 
     const menuButton = screen.getByLabelText('Menu');
     fireEvent.click(menuButton);
 
-    const editButton = screen.getByText('Sửa kết quả');
+    const editButton = screen.getByText('Edit Score');
     fireEvent.click(editButton);
 
     expect(mockProps.onEditScore).toHaveBeenCalledOnce();
   });
 
-  it('should call onSettings when "Cấu hình" is clicked', () => {
-    render(<MenuDropdown {...mockProps} />);
+  it('should call onSettings when "Settings" is clicked', () => {
+    renderWithI18n(<MenuDropdown {...mockProps} />);
 
     const menuButton = screen.getByLabelText('Menu');
     fireEvent.click(menuButton);
 
-    const settingsButton = screen.getByText('Cấu hình');
+    const settingsButton = screen.getByText('Settings');
     fireEvent.click(settingsButton);
 
     expect(mockProps.onSettings).toHaveBeenCalledOnce();

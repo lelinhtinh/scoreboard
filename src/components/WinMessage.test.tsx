@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { renderWithI18n } from '../test/i18n-test-utils';
 import { WinMessage } from './WinMessage';
 import type { GameConfig, TeamConfig } from '../types/game';
 
@@ -18,7 +19,7 @@ const mockTeams: TeamConfig[] = [
 
 describe('WinMessage', () => {
   it('should not show anything when no win state is active', () => {
-    const { container } = render(
+    const { container } = renderWithI18n(
       <WinMessage
         showRoundWin={false}
         roundWinner={null}
@@ -33,8 +34,9 @@ describe('WinMessage', () => {
 
     expect(container.firstChild).toBeNull();
   });
+
   it('should show round win message', () => {
-    render(
+    renderWithI18n(
       <WinMessage
         showRoundWin={true}
         roundWinner={0}
@@ -47,10 +49,11 @@ describe('WinMessage', () => {
       />
     );
 
-    expect(screen.getByText('Team A đã thắng vòng 2')).toBeInTheDocument();
+    expect(screen.getByText('Team A won round 2')).toBeInTheDocument();
   });
+
   it('should show final winner message', () => {
-    render(
+    renderWithI18n(
       <WinMessage
         showRoundWin={false}
         roundWinner={null}
@@ -63,14 +66,12 @@ describe('WinMessage', () => {
       />
     );
 
-    expect(
-      screen.getByText('Team B đã giành chiến thắng!')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Team B won the match!')).toBeInTheDocument();
   });
+
   it('should show single round winner message', () => {
     const singleRoundConfig = { ...defaultConfig, winRounds: 1 };
-
-    render(
+    renderWithI18n(
       <WinMessage
         showRoundWin={false}
         roundWinner={null}
@@ -83,12 +84,11 @@ describe('WinMessage', () => {
       />
     );
 
-    expect(
-      screen.getByText('Team A đã giành chiến thắng!')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Team A won the match!')).toBeInTheDocument();
   });
+
   it('should prioritize final winner over round winner', () => {
-    render(
+    renderWithI18n(
       <WinMessage
         showRoundWin={false}
         roundWinner={0}
@@ -102,13 +102,12 @@ describe('WinMessage', () => {
     );
 
     // Should show final winner, not round winner
-    expect(
-      screen.getByText('Team B đã giành chiến thắng!')
-    ).toBeInTheDocument();
-    expect(screen.queryByText(/thắng vòng/)).not.toBeInTheDocument();
+    expect(screen.getByText('Team B won the match!')).toBeInTheDocument();
+    expect(screen.queryByText(/won round/)).not.toBeInTheDocument();
   });
+
   it('should display correct team name in message', () => {
-    render(
+    renderWithI18n(
       <WinMessage
         showRoundWin={false}
         roundWinner={null}
@@ -121,8 +120,6 @@ describe('WinMessage', () => {
       />
     );
 
-    expect(
-      screen.getByText('Team A đã giành chiến thắng!')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Team A won the match!')).toBeInTheDocument();
   });
 });

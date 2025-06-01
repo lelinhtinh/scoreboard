@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "Papan Skor"
+    },
+    "menu": {
+        "newRound": "Ronde Baru",
+        "newMatch": "Pertandingan Baru",
+        "editScore": "Edit Skor",
+        "settings": "Pengaturan"
+    },
+    "settings": {
+        "title": "Pengaturan Pertandingan",
+        "description": "Konfigurasi tim dan aturan permainan untuk pertandingan Anda",
+        "teams": "Tim",
+        "team": "Tim {{number}}",
+        "name": "Nama",
+        "gameConfig": "Konfigurasi Permainan",
+        "teamName": "Nama Tim",
+        "color": "Warna",
+        "winScore": "Skor Menang",
+        "maxScore": "Skor Maksimum",
+        "minDiff": "Selisih Minimum",
+        "winRounds": "Ronde Menang",
+        "scoreStep": "Penambahan Skor",
+        "reset": "Reset",
+        "save": "Simpan"
+    },
+    "editScore": {
+        "title": "Edit Skor",
+        "cancel": "Batal",
+        "save": "Simpan"
+    },
+    "editScores": {
+        "title": "Edit Hasil Ronde",
+        "description": "Ubah skor untuk setiap ronde pertandingan",
+        "round": "Ronde {{number}}"
+    },
+    "common": {
+        "cancel": "Batal",
+        "save": "Simpan"
+    },
+    "winMessage": {
+        "roundWin": "{{team}} memenangkan ronde {{round}}",
+        "finalWin": "{{team}} memenangkan pertandingan!"
+    },
+    "ui": {
+        "swapTeams": "Tukar tim"
+    },
+    "validation": {
+        "teamNameEmpty": "Nama tim tidak boleh kosong",
+        "teamNameWhitespace": "Nama tim tidak boleh hanya berisi spasi",
+        "teamNameTooLong": "Nama tim tidak boleh melebihi 50 karakter",
+        "invalidColor": "Format warna tidak valid",
+        "valueGreaterThanZero": "Nilai harus lebih besar dari 0",
+        "integerOnly": "Hanya bilangan bulat yang diizinkan",
+        "positiveOnly": "Hanya bilangan positif yang diizinkan",
+        "oddRoundsOnly": "Ronde menang harus ganjil",
+        "invalidData": "Data tidak valid",
+        "validationError": "Kesalahan validasi"
+    },
+    "defaultTeams": {
+        "teamA": "Tim A",
+        "teamB": "Tim B"
+    }
+}

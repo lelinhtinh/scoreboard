@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
+import { renderWithI18n } from '../test/i18n-test-utils';
 import { EditScoreDialog } from './EditScoreDialog';
 import type { GameConfig, TeamConfig } from '../types/game';
 
@@ -15,6 +16,9 @@ vi.mock('@/components/ui/dialog', () => ({
   ),
   DialogTitle: ({ children }: { children: React.ReactNode }) => (
     <h2 data-testid="dialog-title">{children}</h2>
+  ),
+  DialogDescription: ({ children }: { children: React.ReactNode }) => (
+    <p data-testid="dialog-description">{children}</p>
   ),
   DialogFooter: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="dialog-footer">{children}</div>
@@ -84,29 +88,28 @@ describe('EditScoreDialog', () => {
     onScoreChange: vi.fn(),
     onSave: vi.fn(),
   };
-
   it('should render when open', () => {
-    render(<EditScoreDialog {...defaultProps} />);
+    renderWithI18n(<EditScoreDialog {...defaultProps} />);
 
     expect(screen.getByTestId('dialog')).toBeInTheDocument();
-    expect(screen.getByText('Sửa kết quả các vòng')).toBeInTheDocument();
+    expect(screen.getByText('Edit Round Results')).toBeInTheDocument();
   });
 
   it('should not render when closed', () => {
-    render(<EditScoreDialog {...defaultProps} open={false} />);
+    renderWithI18n(<EditScoreDialog {...defaultProps} open={false} />);
 
     expect(screen.queryByTestId('dialog')).not.toBeInTheDocument();
   });
   it('should display round labels', () => {
-    render(<EditScoreDialog {...defaultProps} />);
+    renderWithI18n(<EditScoreDialog {...defaultProps} />);
 
     // Should display round labels (the component doesn't show team names, only round numbers)
-    expect(screen.getByText('Vòng 1')).toBeInTheDocument();
-    expect(screen.getByText('Vòng 2')).toBeInTheDocument();
-    expect(screen.getByText('Vòng 3')).toBeInTheDocument();
+    expect(screen.getByText('Round 1')).toBeInTheDocument();
+    expect(screen.getByText('Round 2')).toBeInTheDocument();
+    expect(screen.getByText('Round 3')).toBeInTheDocument();
   });
   it('should display round scores', () => {
-    render(<EditScoreDialog {...defaultProps} />);
+    renderWithI18n(<EditScoreDialog {...defaultProps} />);
 
     // Check some of the scores are displayed (use getAllByDisplayValue for duplicates)
     const scores21 = screen.getAllByDisplayValue('21');
@@ -119,7 +122,9 @@ describe('EditScoreDialog', () => {
 
   it('should call onScoreChange when score is modified', () => {
     const onScoreChange = vi.fn();
-    render(<EditScoreDialog {...defaultProps} onScoreChange={onScoreChange} />);
+    renderWithI18n(
+      <EditScoreDialog {...defaultProps} onScoreChange={onScoreChange} />
+    );
 
     // Find first input and change its value
     const scoreInputs = screen.getAllByDisplayValue('21');
@@ -131,27 +136,25 @@ describe('EditScoreDialog', () => {
   });
   it('should call onSave when save button is clicked', () => {
     const onSave = vi.fn();
-    render(<EditScoreDialog {...defaultProps} onSave={onSave} />);
+    renderWithI18n(<EditScoreDialog {...defaultProps} onSave={onSave} />);
 
-    const saveButton = screen.getByText('Lưu');
+    const saveButton = screen.getByText('Save');
     fireEvent.click(saveButton);
 
     expect(onSave).toHaveBeenCalled();
   });
-
   it('should handle empty scores array', () => {
-    render(<EditScoreDialog {...defaultProps} editScores={[]} />);
+    renderWithI18n(<EditScoreDialog {...defaultProps} editScores={[]} />);
 
     expect(screen.getByTestId('dialog')).toBeInTheDocument();
-    expect(screen.getByText('Sửa kết quả các vòng')).toBeInTheDocument();
+    expect(screen.getByText('Edit Round Results')).toBeInTheDocument();
   });
-
   it('should display round numbers correctly', () => {
-    render(<EditScoreDialog {...defaultProps} />);
+    renderWithI18n(<EditScoreDialog {...defaultProps} />);
 
     // Should show round labels
-    expect(screen.getByText('Vòng 1')).toBeInTheDocument();
-    expect(screen.getByText('Vòng 2')).toBeInTheDocument();
-    expect(screen.getByText('Vòng 3')).toBeInTheDocument();
+    expect(screen.getByText('Round 1')).toBeInTheDocument();
+    expect(screen.getByText('Round 2')).toBeInTheDocument();
+    expect(screen.getByText('Round 3')).toBeInTheDocument();
   });
 });

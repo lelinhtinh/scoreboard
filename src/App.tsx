@@ -1,4 +1,6 @@
 import { useScoreboardGame } from './hooks/useScoreboardGame';
+import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 import type { TeamConfig } from './types/game';
 import { defaultConfig } from './types/game';
 import { checkRoundResult } from './utils/gameLogic';
@@ -11,6 +13,13 @@ import { RoundIndicator } from './components/RoundIndicator';
 import { WinMessage } from './components/WinMessage';
 
 function App() {
+  const { t } = useTranslation();
+
+  // Update document title when language changes
+  useEffect(() => {
+    document.title = t('app.title');
+  }, [t]);
+
   const {
     teams,
     setTeams,
@@ -60,8 +69,8 @@ function App() {
   const resetSettings = () => {
     setTempConfig(defaultConfig);
     setTempTeams([
-      { name: 'Team A', color: '#2563eb', score: 0 },
-      { name: 'Team B', color: '#dc2626', score: 0 },
+      { name: t('defaultTeams.teamA'), color: '#2563eb', score: 0 },
+      { name: t('defaultTeams.teamB'), color: '#dc2626', score: 0 },
     ]);
   };
 

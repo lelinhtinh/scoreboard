@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "Marcador"
+    },
+    "menu": {
+        "newRound": "Nueva Ronda",
+        "newMatch": "Nuevo Partido",
+        "editScore": "Editar Puntuación",
+        "settings": "Configuración"
+    },
+    "settings": {
+        "title": "Configuración del Partido",
+        "description": "Configura los equipos y las reglas del juego para tu partido",
+        "teams": "Equipos",
+        "team": "Equipo {{number}}",
+        "name": "Nombre",
+        "gameConfig": "Configuración del Juego",
+        "teamName": "Nombre del Equipo",
+        "color": "Color",
+        "winScore": "Puntuación para Ganar",
+        "maxScore": "Puntuación Máxima",
+        "minDiff": "Diferencia Mínima",
+        "winRounds": "Rondas para Ganar",
+        "scoreStep": "Incremento de Puntuación",
+        "reset": "Restablecer",
+        "save": "Guardar"
+    },
+    "editScore": {
+        "title": "Editar Puntuaciones",
+        "cancel": "Cancelar",
+        "save": "Guardar"
+    },
+    "editScores": {
+        "title": "Editar Resultados de Rondas",
+        "description": "Modifica las puntuaciones de cada ronda del partido",
+        "round": "Ronda {{number}}"
+    },
+    "common": {
+        "cancel": "Cancelar",
+        "save": "Guardar"
+    },
+    "winMessage": {
+        "roundWin": "¡{{team}} ganó la ronda {{round}}!",
+        "finalWin": "¡{{team}} ganó el partido!"
+    },
+    "ui": {
+        "swapTeams": "Intercambiar equipos"
+    },
+    "validation": {
+        "teamNameEmpty": "El nombre del equipo no puede estar vacío",
+        "teamNameWhitespace": "El nombre del equipo no puede contener solo espacios en blanco",
+        "teamNameTooLong": "El nombre del equipo no puede exceder 50 caracteres",
+        "invalidColor": "Formato de color inválido",
+        "valueGreaterThanZero": "El valor debe ser mayor que 0",
+        "integerOnly": "Solo se permiten números enteros",
+        "positiveOnly": "Solo se permiten números positivos",
+        "oddRoundsOnly": "Las rondas para ganar deben ser impares",
+        "invalidData": "Datos inválidos",
+        "validationError": "Error de validación"
+    },
+    "defaultTeams": {
+        "teamA": "Equipo A",
+        "teamB": "Equipo B"
+    }
+}

@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "Tableau de Bord"
+    },
+    "menu": {
+        "newRound": "Nouveau Tour",
+        "newMatch": "Nouveau Match",
+        "editScore": "Modifier Score",
+        "settings": "Paramètres"
+    },
+    "settings": {
+        "title": "Paramètres du Match",
+        "description": "Configurez les équipes et les règles du jeu pour votre match",
+        "teams": "Équipes",
+        "team": "Équipe {{number}}",
+        "name": "Nom",
+        "gameConfig": "Configuration du Jeu",
+        "teamName": "Nom de l'Équipe",
+        "color": "Couleur",
+        "winScore": "Score pour Gagner",
+        "maxScore": "Score Maximum",
+        "minDiff": "Différence Minimale",
+        "winRounds": "Tours pour Gagner",
+        "scoreStep": "Incrément de Score",
+        "reset": "Réinitialiser",
+        "save": "Sauvegarder"
+    },
+    "editScore": {
+        "title": "Modifier les Scores",
+        "cancel": "Annuler",
+        "save": "Sauvegarder"
+    },
+    "editScores": {
+        "title": "Modifier les Résultats des Tours",
+        "description": "Modifiez les scores de chaque tour du match",
+        "round": "Tour {{number}}"
+    },
+    "common": {
+        "cancel": "Annuler",
+        "save": "Sauvegarder"
+    },
+    "winMessage": {
+        "roundWin": "{{team}} a gagné le tour {{round}} !",
+        "finalWin": "{{team}} a gagné le match !"
+    },
+    "ui": {
+        "swapTeams": "Échanger les équipes"
+    },
+    "validation": {
+        "teamNameEmpty": "Le nom de l'équipe ne peut pas être vide",
+        "teamNameWhitespace": "Le nom de l'équipe ne peut pas contenir uniquement des espaces",
+        "teamNameTooLong": "Le nom de l'équipe ne peut pas dépasser 50 caractères",
+        "invalidColor": "Format de couleur invalide",
+        "valueGreaterThanZero": "La valeur doit être supérieure à 0",
+        "integerOnly": "Seuls les nombres entiers sont autorisés",
+        "positiveOnly": "Seuls les nombres positifs sont autorisés",
+        "oddRoundsOnly": "Les tours pour gagner doivent être impairs",
+        "invalidData": "Données invalides",
+        "validationError": "Erreur de validation"
+    },
+    "defaultTeams": {
+        "teamA": "Équipe A",
+        "teamB": "Équipe B"
+    }
+}

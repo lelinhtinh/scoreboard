@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { TeamConfig, GameConfig, Round } from '../types/game';
 import { defaultConfig } from '../types/game';
 import {
@@ -8,9 +9,11 @@ import {
 } from '../utils/gameLogic';
 
 export function useScoreboardGame() {
+  const { t } = useTranslation();
+
   const [teams, setTeams] = useState<TeamConfig[]>([
-    { name: 'Team A', color: '#2563eb', score: 0 },
-    { name: 'Team B', color: '#dc2626', score: 0 },
+    { name: t('defaultTeams.teamA'), color: '#2563eb', score: 0 },
+    { name: t('defaultTeams.teamB'), color: '#dc2626', score: 0 },
   ]);
 
   const [config, setConfig] = useState<GameConfig>(defaultConfig);

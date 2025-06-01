@@ -1,5 +1,29 @@
 apply plugin: 'com.android.application'
 
+// Define version values at build script level
+def packageVersion = "1.2.0"
+def packageVersionCode = 10200
+
+// Try to read from package.json, but use fallbacks if it fails
+try {
+    def packageJsonFile = file('../../package.json')
+    if (packageJsonFile.exists()) {
+        def packageJson = new groovy.json.JsonSlurper().parseText(packageJsonFile.text)
+        if (packageJson.version) {
+            packageVersion = packageJson.version
+            def parts = packageVersion.split('\\.')
+            if (parts.length >= 3) {
+                packageVersionCode = (parts[0] as Integer) * 10000 + (parts[1] as Integer) * 100 + (parts[2] as Integer)
+            }
+        }
+    }
+} catch (Exception e) {
+    println "Warning: Could not read version from package.json: ${e.message}"
+    println "Using fallback values: version=${packageVersion}, code=${packageVersionCode}"
+}
+
+println "Final version values: name=${packageVersion}, code=${packageVersionCode}"
+
 android {
     namespace "io.github.lelinhtinh.scoreboard"
     compileSdk rootProject.ext.compileSdkVersion
@@ -7,8 +31,8 @@ android {
         applicationId "io.github.lelinhtinh.scoreboard"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode packageVersionCode
+        versionName packageVersion
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.

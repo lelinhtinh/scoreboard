@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "Tabellone"
+    },
+    "menu": {
+        "newRound": "Nuovo Round",
+        "newMatch": "Nuova Partita",
+        "editScore": "Modifica Punteggio",
+        "settings": "Impostazioni"
+    },
+    "settings": {
+        "title": "Impostazioni Partita",
+        "description": "Configura squadre e regole di gioco per la tua partita",
+        "teams": "Squadre",
+        "team": "Squadra {{number}}",
+        "name": "Nome",
+        "gameConfig": "Configurazione Gioco",
+        "teamName": "Nome Squadra",
+        "color": "Colore",
+        "winScore": "Punteggio per Vincere",
+        "maxScore": "Punteggio Massimo",
+        "minDiff": "Differenza Minima",
+        "winRounds": "Round per Vincere",
+        "scoreStep": "Incremento Punteggio",
+        "reset": "Ripristina",
+        "save": "Salva"
+    },
+    "editScore": {
+        "title": "Modifica Punteggi",
+        "cancel": "Annulla",
+        "save": "Salva"
+    },
+    "editScores": {
+        "title": "Modifica Risultati Round",
+        "description": "Modifica i punteggi per ogni round della partita",
+        "round": "Round {{number}}"
+    },
+    "common": {
+        "cancel": "Annulla",
+        "save": "Salva"
+    },
+    "winMessage": {
+        "roundWin": "{{team}} ha vinto il round {{round}}",
+        "finalWin": "{{team}} ha vinto la partita!"
+    },
+    "ui": {
+        "swapTeams": "Scambia squadre"
+    },
+    "validation": {
+        "teamNameEmpty": "Il nome della squadra non può essere vuoto",
+        "teamNameWhitespace": "Il nome della squadra non può contenere solo spazi",
+        "teamNameTooLong": "Il nome della squadra non può superare 50 caratteri",
+        "invalidColor": "Formato colore non valido",
+        "valueGreaterThanZero": "Il valore deve essere maggiore di 0",
+        "integerOnly": "Solo numeri interi consentiti",
+        "positiveOnly": "Solo numeri positivi consentiti",
+        "oddRoundsOnly": "I round per vincere devono essere dispari",
+        "invalidData": "Dati non validi",
+        "validationError": "Errore di validazione"
+    },
+    "defaultTeams": {
+        "teamA": "Squadra A",
+        "teamB": "Squadra B"
+    }
+}

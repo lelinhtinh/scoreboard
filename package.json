@@ -1,7 +1,7 @@
 {
   "name": "scoreboard",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,7 +12,11 @@
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "cap:sync": "npx cap sync",
+    "cap:copy": "npx cap copy android",
+    "android:build": "npm run build && npx cap copy android",
+    "android:open": "npx cap open android"
   },
   "dependencies": {
     "@capacitor/android": "^7.2.0",
@@ -27,9 +31,12 @@
     "@tailwindcss/vite": "^4.1.7",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "i18next": "^25.2.1",
+    "i18next-browser-languagedetector": "^8.1.0",
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-i18next": "^15.5.2",
     "shadcn-ui": "^0.9.5",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.7",
@@ -45,6 +52,7 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
+    "@vitest/ui": "^3.1.4",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",

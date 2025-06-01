@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "Bảng điểm"
+    },
+    "menu": {
+        "newRound": "Vòng mới",
+        "newMatch": "Trận mới",
+        "editScore": "Sửa kết quả",
+        "settings": "Cấu hình"
+    },
+    "settings": {
+        "title": "Cài đặt trận đấu",
+        "description": "Cấu hình các đội và luật chơi cho trận đấu của bạn",
+        "teams": "Các đội",
+        "team": "Đội {{number}}",
+        "name": "Tên",
+        "gameConfig": "Cấu hình trò chơi",
+        "teamName": "Tên đội",
+        "color": "Màu",
+        "winScore": "Số điểm để thắng",
+        "maxScore": "Số điểm tối đa",
+        "minDiff": "Số điểm cách biệt",
+        "winRounds": "Số vòng để thắng",
+        "scoreStep": "Số điểm tăng mỗi lần",
+        "reset": "Đặt lại",
+        "save": "Lưu"
+    },
+    "editScore": {
+        "title": "Sửa kết quả",
+        "cancel": "Hủy",
+        "save": "Lưu"
+    },
+    "editScores": {
+        "title": "Sửa kết quả các vòng",
+        "description": "Chỉnh sửa điểm số cho từng vòng của trận đấu",
+        "round": "Vòng {{number}}"
+    },
+    "common": {
+        "cancel": "Hủy",
+        "save": "Lưu"
+    },
+    "winMessage": {
+        "roundWin": "{{team}} đã thắng vòng {{round}}",
+        "finalWin": "{{team}} đã giành chiến thắng!"
+    },
+    "ui": {
+        "swapTeams": "Đảo chiều"
+    },
+    "validation": {
+        "teamNameEmpty": "Tên đội không được để trống",
+        "teamNameWhitespace": "Tên đội không được chỉ chứa khoảng trắng",
+        "teamNameTooLong": "Tên đội không được vượt quá 50 ký tự",
+        "invalidColor": "Màu sắc không hợp lệ",
+        "valueGreaterThanZero": "Giá trị phải lớn hơn 0",
+        "integerOnly": "Chỉ được nhập số nguyên",
+        "positiveOnly": "Chỉ được nhập số dương",
+        "oddRoundsOnly": "Số vòng để thắng phải là số lẻ",
+        "invalidData": "Dữ liệu không hợp lệ",
+        "validationError": "Lỗi xác thực"
+    },
+    "defaultTeams": {
+        "teamA": "Đội A",
+        "teamB": "Đội B"
+    }
+}

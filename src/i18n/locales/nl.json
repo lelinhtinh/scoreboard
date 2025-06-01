@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "Scorebord"
+    },
+    "menu": {
+        "newRound": "Nieuwe Ronde",
+        "newMatch": "Nieuwe Wedstrijd",
+        "editScore": "Score Bewerken",
+        "settings": "Instellingen"
+    },
+    "settings": {
+        "title": "Wedstrijd Instellingen",
+        "description": "Configureer teams en spelregels voor je wedstrijd",
+        "teams": "Teams",
+        "team": "Team {{number}}",
+        "name": "Naam",
+        "gameConfig": "Spel Configuratie",
+        "teamName": "Teamnaam",
+        "color": "Kleur",
+        "winScore": "Score om te Winnen",
+        "maxScore": "Maximum Score",
+        "minDiff": "Minimum Verschil",
+        "winRounds": "Rondes om te Winnen",
+        "scoreStep": "Score Verhoging",
+        "reset": "Reset",
+        "save": "Opslaan"
+    },
+    "editScore": {
+        "title": "Scores Bewerken",
+        "cancel": "Annuleren",
+        "save": "Opslaan"
+    },
+    "editScores": {
+        "title": "Ronde Resultaten Bewerken",
+        "description": "Wijzig de scores voor elke ronde van de wedstrijd",
+        "round": "Ronde {{number}}"
+    },
+    "common": {
+        "cancel": "Annuleren",
+        "save": "Opslaan"
+    },
+    "winMessage": {
+        "roundWin": "{{team}} won ronde {{round}}",
+        "finalWin": "{{team}} won de wedstrijd!"
+    },
+    "ui": {
+        "swapTeams": "Teams omwisselen"
+    },
+    "validation": {
+        "teamNameEmpty": "Teamnaam kan niet leeg zijn",
+        "teamNameWhitespace": "Teamnaam kan niet alleen uit spaties bestaan",
+        "teamNameTooLong": "Teamnaam kan niet meer dan 50 tekens bevatten",
+        "invalidColor": "Ongeldig kleurformaat",
+        "valueGreaterThanZero": "Waarde moet groter zijn dan 0",
+        "integerOnly": "Alleen gehele getallen toegestaan",
+        "positiveOnly": "Alleen positieve getallen toegestaan",
+        "oddRoundsOnly": "Rondes om te winnen moeten oneven zijn",
+        "invalidData": "Ongeldige gegevens",
+        "validationError": "Validatiefout"
+    },
+    "defaultTeams": {
+        "teamA": "Team A",
+        "teamB": "Team B"
+    }
+}

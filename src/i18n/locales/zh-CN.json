@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "计分板"
+    },
+    "menu": {
+        "newRound": "新回合",
+        "newMatch": "新比赛",
+        "editScore": "编辑分数",
+        "settings": "设置"
+    },
+    "settings": {
+        "title": "比赛设置",
+        "description": "为您的比赛配置团队和游戏规则",
+        "teams": "团队",
+        "team": "团队{{number}}",
+        "name": "名称",
+        "gameConfig": "游戏配置",
+        "teamName": "团队名称",
+        "color": "颜色",
+        "winScore": "获胜分数",
+        "maxScore": "最高分数",
+        "minDiff": "最小差值",
+        "winRounds": "获胜回合数",
+        "scoreStep": "分数增量",
+        "reset": "重置",
+        "save": "保存"
+    },
+    "editScore": {
+        "title": "编辑分数",
+        "cancel": "取消",
+        "save": "保存"
+    },
+    "editScores": {
+        "title": "编辑回合结果",
+        "description": "修改比赛每个回合的分数",
+        "round": "第{{number}}回合"
+    },
+    "common": {
+        "cancel": "取消",
+        "save": "保存"
+    },
+    "winMessage": {
+        "roundWin": "{{team}}赢得了第{{round}}回合！",
+        "finalWin": "{{team}}赢得了比赛！"
+    },
+    "ui": {
+        "swapTeams": "交换团队"
+    },
+    "validation": {
+        "teamNameEmpty": "团队名称不能为空",
+        "teamNameWhitespace": "团队名称不能只包含空白字符",
+        "teamNameTooLong": "团队名称不能超过50个字符",
+        "invalidColor": "无效的颜色格式",
+        "valueGreaterThanZero": "值必须大于0",
+        "integerOnly": "仅允许整数",
+        "positiveOnly": "仅允许正数",
+        "oddRoundsOnly": "获胜回合数必须为奇数",
+        "invalidData": "无效数据",
+        "validationError": "验证错误"
+    },
+    "defaultTeams": {
+        "teamA": "团队A",
+        "teamB": "团队B"
+    }
+}

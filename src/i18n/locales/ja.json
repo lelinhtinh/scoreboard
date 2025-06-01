@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "スコアボード"
+    },
+    "menu": {
+        "newRound": "新しいラウンド",
+        "newMatch": "新しい試合",
+        "editScore": "スコア編集",
+        "settings": "設定"
+    },
+    "settings": {
+        "title": "試合設定",
+        "description": "チームとゲームルールを設定してください",
+        "teams": "チーム",
+        "team": "チーム{{number}}",
+        "name": "名前",
+        "gameConfig": "ゲーム設定",
+        "teamName": "チーム名",
+        "color": "色",
+        "winScore": "勝利スコア",
+        "maxScore": "最大スコア",
+        "minDiff": "最小差",
+        "winRounds": "勝利ラウンド数",
+        "scoreStep": "スコア増分",
+        "reset": "リセット",
+        "save": "保存"
+    },
+    "editScore": {
+        "title": "スコア編集",
+        "cancel": "キャンセル",
+        "save": "保存"
+    },
+    "editScores": {
+        "title": "ラウンド結果編集",
+        "description": "試合の各ラウンドのスコアを変更します",
+        "round": "ラウンド{{number}}"
+    },
+    "common": {
+        "cancel": "キャンセル",
+        "save": "保存"
+    },
+    "winMessage": {
+        "roundWin": "{{team}}がラウンド{{round}}に勝利しました！",
+        "finalWin": "{{team}}が試合に勝利しました！"
+    },
+    "ui": {
+        "swapTeams": "チーム入れ替え"
+    },
+    "validation": {
+        "teamNameEmpty": "チーム名を空にすることはできません",
+        "teamNameWhitespace": "チーム名に空白文字のみを含めることはできません",
+        "teamNameTooLong": "チーム名は50文字を超えることはできません",
+        "invalidColor": "無効な色形式",
+        "valueGreaterThanZero": "値は0より大きくなければなりません",
+        "integerOnly": "整数のみ許可されています",
+        "positiveOnly": "正の数のみ許可されています",
+        "oddRoundsOnly": "勝利ラウンド数は奇数でなければなりません",
+        "invalidData": "無効なデータ",
+        "validationError": "バリデーションエラー"
+    },
+    "defaultTeams": {
+        "teamA": "チームA",
+        "teamB": "チームB"
+    }
+}

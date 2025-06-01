@@ -1,4 +1,5 @@
 import type { TeamConfig, GameConfig } from '../types/game';
+import { useTranslation } from 'react-i18next';
 
 interface WinMessageProps {
   showRoundWin: boolean;
@@ -21,13 +22,14 @@ export function WinMessage({
   config,
   currentRound,
 }: WinMessageProps) {
+  const { t } = useTranslation();
+
   const messageStyle = {
     zIndex: 20,
     alignItems: window.innerWidth > window.innerHeight ? 'flex-end' : 'center',
     justifyContent: 'center',
     paddingBottom: window.innerWidth > window.innerHeight ? '10vh' : 0,
   } as const;
-
   // Hiển thị thông báo thắng vòng
   if (showRoundWin && roundWinner !== null && !hasFinalWinner) {
     return (
@@ -37,13 +39,15 @@ export function WinMessage({
       >
         <div className="bg-white/90 dark:bg-black/80 rounded-xl px-8 py-6 shadow-xl text-center">
           {config.winRounds > 1
-            ? `${teams[roundWinner].name} đã thắng vòng ${currentRound}`
-            : `${teams[roundWinner].name} đã giành chiến thắng!`}
+            ? t('winMessage.roundWin', {
+                team: teams[roundWinner].name,
+                round: currentRound,
+              })
+            : t('winMessage.finalWin', { team: teams[roundWinner].name })}
         </div>
       </div>
     );
   }
-
   // Hiển thị thông báo thắng cuối cùng (chỉ khi không hiển thị thông báo thắng vòng)
   if (!showRoundWin && (winner !== null || hasFinalWinner)) {
     return (
@@ -53,7 +57,9 @@ export function WinMessage({
       >
         <div className="bg-white/90 dark:bg-black/80 rounded-xl px-8 py-6 shadow-xl text-center">
           {hasFinalWinner || config.winRounds === 1
-            ? `${teams[finalWinner ?? winner ?? 0].name} đã giành chiến thắng!`
+            ? t('winMessage.finalWin', {
+                team: teams[finalWinner ?? winner ?? 0].name,
+              })
             : null}
         </div>
       </div>

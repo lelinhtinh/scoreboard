@@ -56,9 +56,9 @@ export function Scoreboard({
                 <Crown className="text-yellow-500 w-6 h-6" />
               </span>
             )}
-          </div>
+          </div>{' '}
           <div
-            className="font-extrabold select-none"
+            className="font-extrabold select-none mb-2"
             style={{
               color: team.color,
               fontSize: 'min(20vw, 16vh)',
@@ -69,7 +69,7 @@ export function Scoreboard({
             }}
           >
             {lastRound[idx === 0 ? 'a' : 'b']}
-          </div>{' '}
+          </div>
           <Button
             variant="ghost"
             disabled={!canEditScore}

@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "Placar"
+    },
+    "menu": {
+        "newRound": "Nova Rodada",
+        "newMatch": "Nova Partida",
+        "editScore": "Editar Pontuação",
+        "settings": "Configurações"
+    },
+    "settings": {
+        "title": "Configurações da Partida",
+        "description": "Configure as equipes e regras do jogo para sua partida",
+        "teams": "Equipes",
+        "team": "Equipe {{number}}",
+        "name": "Nome",
+        "gameConfig": "Configuração do Jogo",
+        "teamName": "Nome da Equipe",
+        "color": "Cor",
+        "winScore": "Pontuação para Vitória",
+        "maxScore": "Pontuação Máxima",
+        "minDiff": "Diferença Mínima",
+        "winRounds": "Rodadas para Vitória",
+        "scoreStep": "Incremento de Pontuação",
+        "reset": "Redefinir",
+        "save": "Salvar"
+    },
+    "editScore": {
+        "title": "Editar Pontuações",
+        "cancel": "Cancelar",
+        "save": "Salvar"
+    },
+    "editScores": {
+        "title": "Editar Resultados das Rodadas",
+        "description": "Modifique as pontuações de cada rodada da partida",
+        "round": "Rodada {{number}}"
+    },
+    "common": {
+        "cancel": "Cancelar",
+        "save": "Salvar"
+    },
+    "winMessage": {
+        "roundWin": "{{team}} venceu a rodada {{round}}!",
+        "finalWin": "{{team}} venceu a partida!"
+    },
+    "ui": {
+        "swapTeams": "Trocar equipes"
+    },
+    "validation": {
+        "teamNameEmpty": "O nome da equipe não pode estar vazio",
+        "teamNameWhitespace": "O nome da equipe não pode conter apenas espaços em branco",
+        "teamNameTooLong": "O nome da equipe não pode exceder 50 caracteres",
+        "invalidColor": "Formato de cor inválido",
+        "valueGreaterThanZero": "O valor deve ser maior que 0",
+        "integerOnly": "Apenas números inteiros são permitidos",
+        "positiveOnly": "Apenas números positivos são permitidos",
+        "oddRoundsOnly": "Rodadas para vitória devem ser ímpares",
+        "invalidData": "Dados inválidos",
+        "validationError": "Erro de validação"
+    },
+    "defaultTeams": {
+        "teamA": "Equipe A",
+        "teamB": "Equipe B"
+    }
+}

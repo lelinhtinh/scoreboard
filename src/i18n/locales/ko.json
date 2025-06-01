@@ -1,0 +1,65 @@
+{
+    "app": {
+        "title": "스코어보드"
+    },
+    "menu": {
+        "newRound": "새 라운드",
+        "newMatch": "새 경기",
+        "editScore": "점수 편집",
+        "settings": "설정"
+    },
+    "settings": {
+        "title": "경기 설정",
+        "description": "경기의 팀과 게임 규칙을 설정하세요",
+        "teams": "팀",
+        "team": "팀 {{number}}",
+        "name": "이름",
+        "gameConfig": "게임 설정",
+        "teamName": "팀 이름",
+        "color": "색상",
+        "winScore": "승리 점수",
+        "maxScore": "최대 점수",
+        "minDiff": "최소 차이",
+        "winRounds": "승리 라운드 수",
+        "scoreStep": "점수 증가량",
+        "reset": "초기화",
+        "save": "저장"
+    },
+    "editScore": {
+        "title": "점수 편집",
+        "cancel": "취소",
+        "save": "저장"
+    },
+    "editScores": {
+        "title": "라운드 결과 편집",
+        "description": "경기의 각 라운드 점수를 수정합니다",
+        "round": "라운드 {{number}}"
+    },
+    "common": {
+        "cancel": "취소",
+        "save": "저장"
+    },
+    "winMessage": {
+        "roundWin": "{{team}}이(가) 라운드 {{round}}에서 승리했습니다!",
+        "finalWin": "{{team}}이(가) 경기에서 승리했습니다!"
+    },
+    "ui": {
+        "swapTeams": "팀 교체"
+    },
+    "validation": {
+        "teamNameEmpty": "팀 이름은 비워둘 수 없습니다",
+        "teamNameWhitespace": "팀 이름은 공백만 포함할 수 없습니다",
+        "teamNameTooLong": "팀 이름은 50자를 초과할 수 없습니다",
+        "invalidColor": "잘못된 색상 형식",
+        "valueGreaterThanZero": "값은 0보다 커야 합니다",
+        "integerOnly": "정수만 허용됩니다",
+        "positiveOnly": "양수만 허용됩니다",
+        "oddRoundsOnly": "승리 라운드 수는 홀수여야 합니다",
+        "invalidData": "잘못된 데이터",
+        "validationError": "검증 오류"
+    },
+    "defaultTeams": {
+        "teamA": "팀 A",
+        "teamB": "팀 B"
+    }
+}
